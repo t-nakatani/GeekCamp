@@ -10,7 +10,7 @@ const Popup = () => {
       let titles = data.map(page => page.title); // URLのリストを取得
       console.log('URLs:', urls); // URLのリストをコンソールに出力
 
-      let url = 'http://127.0.0.1:8000/fetch_history/';
+      let url = 'http://127.0.0.1:8000/history/';
       let data_ = { urls: urls , titles: titles}; // リクエストのデータとしてURLのリストを使用
       
       postData(url, data_);
