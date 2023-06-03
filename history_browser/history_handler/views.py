@@ -17,7 +17,7 @@ class HistoryView(generics.ListCreateAPIView):
     serializer_class = HistorySerializer
     queryset = History.objects.all()
 
-    def list(self, request, username):
-        queryset = History.objects.select_related('user').filter(user__username=username)
+    def list(self, request, user_id):
+        queryset = History.objects.select_related('user').filter(user__id=user_id)
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)

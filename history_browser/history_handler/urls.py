@@ -6,7 +6,7 @@ from . import views
 router = routers.DefaultRouter()
 
 urlpatterns = [
-    path('<str:username>/',
+    path('<int:user_id>/',
          views.HistoryView.as_view(),
          name='history'),
     path('host/', views.HostView.as_view(), name='host'),
