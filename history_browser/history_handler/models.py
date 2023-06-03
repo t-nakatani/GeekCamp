@@ -8,7 +8,7 @@ class URL(models.Model):
     title = models.CharField(max_length=64, default='No Title')
     host_id = models.ForeignKey(Host, 
                                 null=True,
-                                on_delete=models.PROTECT)
+                                on_delete=models.PROTECT) # TODO: fix name: host_id_id
 
 class User(models.Model):
     username = models.CharField(max_length=2048)
