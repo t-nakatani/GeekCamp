@@ -1,6 +1,5 @@
 import React from 'react';
-import logo from '../../assets/img/logo.svg';
-import Greetings from '../../containers/Greetings/Greetings';
+import logo from '../../assets/img/logo2.svg';
 import './Popup.css';
 
 const Popup = () => {
@@ -10,10 +9,14 @@ const Popup = () => {
       let titles = data.map(page => page.title); // URLのリストを取得
       console.log('URLs:', urls); // URLのリストをコンソールに出力
 
-      let url = 'http://127.0.0.1:8000/history/';
+      let endpoint = 'http://127.0.0.1:8000/history/';
       let data_ = { urls: urls , titles: titles}; // リクエストのデータとしてURLのリストを使用
       
-      postData(url, data_);
+      postData(endpoint, data_);
+
+      var url = "https://example.com"; // 遷移先の URL を指定する
+      window.open(url, "_blank");
+
     });
   };
 
@@ -42,8 +45,11 @@ const postData = (url, data) => {
   return (
     <div className="App">
       <header className="App-header">
+        <h1>Chrome History Extension</h1>
         <img src={logo} className="App-logo" alt="logo" />
-        <button id='searchButton' onClick={handleSearchHistory}>Upload History</button>
+        <p></p>
+        <button id='postButton' onClick={handleSearchHistory}>POST History Data</button>
+        <p></p>
       </header>
     </div>
   );
